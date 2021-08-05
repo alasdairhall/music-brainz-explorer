@@ -10,4 +10,6 @@ class ArtistsRepository @Inject constructor() {
     }
 }
 
-class Artist
+data class Artist(
+    val name: String
+)
