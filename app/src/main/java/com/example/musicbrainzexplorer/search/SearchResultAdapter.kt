@@ -1,6 +1,7 @@
 package com.example.musicbrainzexplorer.search
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
@@ -26,6 +27,12 @@ class SearchResultAdapter(
         RecyclerView.ViewHolder(itemBinding.root) {
         fun bind(artist: Artist) {
             itemBinding.artistName.text = artist.name
+            if (artist.area != null) {
+                itemBinding.artistArea.text = artist.area.name
+                itemBinding.artistArea.visibility = View.VISIBLE
+            } else {
+                itemBinding.artistArea.visibility = View.GONE
+            }
 
             itemView.setOnClickListener {
                 Toast.makeText(itemView.context, artist.id, Toast.LENGTH_SHORT).show()

@@ -5,12 +5,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/search_result_background"
     android:layout_marginBottom="@dimen/margin_small"
+    android:orientation="vertical"
+    android:padding="@dimen/margin"
     android:minHeight="120dp">
 
     <TextView
         android:id="@+id/artistName"
+        style="@style/TextAppearance.AppCompat.Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin"
         tools:text="The Beatles" />
+
+    <TextView
+        android:id="@+id/artistArea"
+        style="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="United Kingdom" />
 </LinearLayout>
