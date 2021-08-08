@@ -3,7 +3,7 @@ package com.example.musicbrainzexplorer
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.musicbrainzexplorer.repository.Artist
+import com.example.musicbrainzexplorer.remote.model.Artist
 import com.example.musicbrainzexplorer.repository.ArtistsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collect

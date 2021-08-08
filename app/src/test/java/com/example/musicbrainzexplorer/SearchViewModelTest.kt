@@ -2,7 +2,7 @@ package com.example.musicbrainzexplorer
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
-import com.example.musicbrainzexplorer.repository.Artist
+import com.example.musicbrainzexplorer.remote.model.Artist
 import com.example.musicbrainzexplorer.repository.ArtistsRepository
 import io.mockk.coEvery
 import io.mockk.coVerify
