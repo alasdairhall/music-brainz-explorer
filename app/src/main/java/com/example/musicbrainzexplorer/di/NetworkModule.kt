@@ -26,7 +26,15 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideOkHttpClient(): OkHttpClient = OkHttpClient.Builder().build()
+    fun provideOkHttpClient(): OkHttpClient = OkHttpClient.Builder()
+        .addInterceptor { chain ->
+            val newRequest = chain.request().newBuilder().apply {
+                addHeader("User-Agent", "MusicBrainzExplorer/0.0.0 (al@dhsound.co.uk)")
+                addHeader("Accept", "application/json")
+            }.build()
+            chain.proceed(newRequest)
+        }
+        .build()
 
     @Provides
     @Singleton
