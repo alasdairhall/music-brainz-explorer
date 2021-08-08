@@ -6,6 +6,6 @@
 
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.example.musicbrainzexplorer.SearchFragment"
+        android:name="com.example.musicbrainzexplorer.search.SearchFragment"
         android:label="SearchFragment" />
 </navigation>
