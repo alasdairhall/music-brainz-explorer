@@ -43,7 +43,9 @@
                 android:id="@+id/albumsList"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin" />
+                android:layout_marginTop="@dimen/margin"
+                tools:itemCount="4"
+                tools:listitem="@layout/row_album" />
         </LinearLayout>
     </ScrollView>
 

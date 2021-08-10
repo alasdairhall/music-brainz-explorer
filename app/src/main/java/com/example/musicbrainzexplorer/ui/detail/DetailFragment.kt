@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.musicbrainzexplorer.databinding.FragmentDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -32,13 +34,16 @@ class DetailFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-
+        binding.albumsList.layoutManager =
+            LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
         viewModel.artistDetail.observe(viewLifecycleOwner) { artist ->
             with(binding) {
                 title.text = artist.name
                 area.text = artist.beginArea?.name
-                val lifeSpan = "${artist.lifeSpan?.begin} - ${artist.lifeSpan?.end}"
-                this.lifeSpan.text = lifeSpan
+                val lifeSpanText = "${artist.lifeSpan?.begin} - ${artist.lifeSpan?.end}"
+                lifeSpan.text = lifeSpanText
+
+                albumsList.adapter = AlbumsAdapter(artist.releaseGroups)
             }
         }
     }
