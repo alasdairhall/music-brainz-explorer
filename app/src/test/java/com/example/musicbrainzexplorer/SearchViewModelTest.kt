@@ -4,7 +4,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import com.example.musicbrainzexplorer.remote.model.Artist
 import com.example.musicbrainzexplorer.repository.ArtistsRepository
-import com.example.musicbrainzexplorer.search.SearchViewModel
+import com.example.musicbrainzexplorer.ui.search.SearchViewModel
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk

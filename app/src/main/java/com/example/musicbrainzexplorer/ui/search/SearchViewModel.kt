@@ -1,4 +1,4 @@
-package com.example.musicbrainzexplorer.search
+package com.example.musicbrainzexplorer.ui.search
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

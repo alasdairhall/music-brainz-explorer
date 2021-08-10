@@ -1,4 +1,4 @@
-package com.example.musicbrainzexplorer.search
+package com.example.musicbrainzexplorer.ui.search
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.musicbrainzexplorer.R
 import com.example.musicbrainzexplorer.databinding.FragmentSearchBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -42,7 +44,12 @@ class SearchFragment : Fragment() {
         }
 
         viewModel.artists.observe(viewLifecycleOwner) { artists ->
-            binding.searchResultsRecyclerView.adapter = SearchResultAdapter(artists)
+            binding.searchResultsRecyclerView.adapter =
+                SearchResultAdapter(artists, ::navigateToDetail)
         }
+    }
+
+    private fun navigateToDetail(id: String) {
+        findNavController().navigate(R.id.detailFragment)
     }
 }

@@ -1,5 +1,6 @@
 package com.example.musicbrainzexplorer.di
 
+import com.example.musicbrainzexplorer.remote.api.ArtistDetailApi
 import com.example.musicbrainzexplorer.remote.api.SearchArtistsApi
 import dagger.Module
 import dagger.Provides
@@ -15,4 +16,9 @@ object ApiModule {
     @Singleton
     fun provideSearchArtistsApi(retrofit: Retrofit): SearchArtistsApi =
         retrofit.create(SearchArtistsApi::class.java)
+
+    @Provides
+    @Singleton
+    fun provideArtistDetailApi(retrofit: Retrofit): ArtistDetailApi =
+        retrofit.create(ArtistDetailApi::class.java)
 }
