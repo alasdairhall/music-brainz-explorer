@@ -6,7 +6,6 @@ import com.example.musicbrainzexplorer.remote.model.ArtistsResponse
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
 import org.junit.Test
@@ -23,7 +22,7 @@ class ArtistsRepositoryTest {
         val expectedArtists = listOf(Artist(id = "123", name = "The Beatles"))
         coEvery { searchArtistsApi.searchArtist(expectedQuery) } returns ArtistsResponse(artists = expectedArtists)
 
-        val artists = artistsRepository.searchArtists(expectedQuery).first()
+        val artists = artistsRepository.searchArtists(expectedQuery)
 
         coVerify { searchArtistsApi.searchArtist(expectedQuery) }
         assertEquals(expectedArtists, artists)

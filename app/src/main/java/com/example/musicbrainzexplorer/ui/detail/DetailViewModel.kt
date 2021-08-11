@@ -6,7 +6,6 @@ import com.example.musicbrainzexplorer.repository.ArtistDetailRepository
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class DetailViewModel @AssistedInject constructor(
@@ -18,9 +17,7 @@ class DetailViewModel @AssistedInject constructor(
 
     init {
         viewModelScope.launch {
-            artistDetailRepository.artistDetail(artistId).collect {
-                _artistDetail.value = it
-            }
+            _artistDetail.value = artistDetailRepository.artistDetail(artistId)
         }
     }
 

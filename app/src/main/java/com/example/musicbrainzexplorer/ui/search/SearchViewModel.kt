@@ -7,7 +7,6 @@ import androidx.lifecycle.viewModelScope
 import com.example.musicbrainzexplorer.remote.model.Artist
 import com.example.musicbrainzexplorer.repository.ArtistsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -20,9 +19,7 @@ class SearchViewModel @Inject constructor(
 
     fun onClickSearch(query: String) {
         viewModelScope.launch {
-            artistsRepository.searchArtists(query).collect {
-                _artists.postValue(it)
-            }
+            _artists.value = artistsRepository.searchArtists(query)
         }
     }
 }
