@@ -2,6 +2,7 @@ package com.example.musicbrainzexplorer.remote.model
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.time.LocalDate
 
 @JsonClass(generateAdapter = true)
 data class ArtistDetail(
@@ -52,7 +53,7 @@ data class ReleaseGroup(
     val type: ReleaseType?,
     val title: String,
     @Json(name = "first-release-date")
-    val firstReleaseDate: String // TODO Date/LocalDate
+    val firstReleaseDate: LocalDate?
 )
 
 enum class ReleaseType {

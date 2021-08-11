@@ -4,13 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.musicbrainzexplorer.databinding.FragmentDetailBinding
+import com.example.musicbrainzexplorer.util.setTextAndVisibility
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -54,15 +54,6 @@ class DetailFragment : Fragment() {
                     LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
                 albumsList.adapter = AlbumsAdapter(artist.albums)
             }
-        }
-    }
-
-    private fun TextView.setTextAndVisibility(newText: String?) {
-        text = newText
-        visibility = if (newText != null) {
-            View.VISIBLE
-        } else {
-            View.GONE
         }
     }
 }

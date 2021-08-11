@@ -5,6 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.musicbrainzexplorer.databinding.RowAlbumBinding
 import com.example.musicbrainzexplorer.remote.model.ReleaseGroup
+import com.example.musicbrainzexplorer.util.longFormat
+import com.example.musicbrainzexplorer.util.setTextAndVisibility
 
 class AlbumsAdapter(
     private val albums: List<ReleaseGroup>
@@ -28,7 +30,7 @@ class AlbumsAdapter(
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(album: ReleaseGroup) {
             binding.albumName.text = album.title
-            binding.releaseYear.text = album.firstReleaseDate.split("-")[0]
+            binding.releaseYear.setTextAndVisibility(album.firstReleaseDate?.longFormat())
         }
     }
 }
