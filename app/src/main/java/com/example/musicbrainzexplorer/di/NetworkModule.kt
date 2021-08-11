@@ -1,5 +1,6 @@
 package com.example.musicbrainzexplorer.di
 
+import com.example.musicbrainzexplorer.remote.model.adapters.ReleaseTypeAdapter
 import com.example.musicbrainzexplorer.remote.model.adapters.StatusAdapter
 import com.squareup.moshi.Moshi
 import dagger.Module
@@ -45,6 +46,7 @@ object NetworkModule {
     @Singleton
     fun provideMoshi(): Moshi = Moshi.Builder()
         .add(StatusAdapter())
+        .add(ReleaseTypeAdapter())
         .build()
 
     private const val BASE_URL = "https://musicbrainz.org/ws/2/"

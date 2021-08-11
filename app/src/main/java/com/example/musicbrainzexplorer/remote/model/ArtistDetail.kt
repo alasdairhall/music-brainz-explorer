@@ -15,7 +15,7 @@ data class ArtistDetail(
     @Json(name = "begin-area")
     val beginArea: Area?
 ) {
-    val albums = releaseGroups.filter { it.primaryType == "Album" }
+    val albums = releaseGroups.filter { it.type == ReleaseType.Album }
 }
 
 enum class ArtistType {
@@ -49,8 +49,17 @@ sealed class Status {
 @JsonClass(generateAdapter = true)
 data class ReleaseGroup(
     @Json(name = "primary-type")
-    val primaryType: String?, // TODO enum
+    val type: ReleaseType?,
     val title: String,
     @Json(name = "first-release-date")
     val firstReleaseDate: String // TODO Date/LocalDate
 )
+
+enum class ReleaseType {
+    Album,
+    Single,
+    EP,
+    Broadcast,
+    Other
+}
+
