@@ -6,11 +6,11 @@ import org.junit.Test
 class StatusTest {
     @Test
     fun `active formats by begin year followed by dash`() {
-        assertEquals("1972 -", Status.Active(begin = "1972"))
+        assertEquals("1972 -", Status.Active(begin = "1972").formatted())
     }
 
     @Test
     fun `ended formats by begin year dash end year`() {
-        assertEquals("1972 - 1992", Status.Ended(begin = "1972", end = "1992"))
+        assertEquals("1972 - 1992", Status.Ended(begin = "1972", end = "1992").formatted())
     }
 }
