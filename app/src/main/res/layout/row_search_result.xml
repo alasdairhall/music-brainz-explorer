@@ -7,7 +7,7 @@
     android:layout_marginBottom="@dimen/margin_small"
     android:orientation="vertical"
     android:padding="@dimen/margin"
-    android:minHeight="120dp">
+    android:minHeight="48dp">
 
     <TextView
         android:id="@+id/artistName"
