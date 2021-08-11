@@ -20,7 +20,7 @@ class ArtistsRepositoryTest {
     @Test
     fun `calls searchArtistsApi with query and returns mapped response`() = runBlocking {
         val expectedQuery = "beatles"
-        val expectedArtists = listOf(Artist(id = "123", name = "The Beatles"))
+        val expectedArtists = listOf(Artist(id = "123", name = "The Beatles", lifeSpan = null))
         coEvery { searchArtistsApi.searchArtist(expectedQuery) } returns ArtistsResponse(artists = expectedArtists)
 
         val artists = artistsRepository.searchArtists(expectedQuery).first()

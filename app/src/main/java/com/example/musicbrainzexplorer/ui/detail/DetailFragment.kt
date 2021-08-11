@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
@@ -42,17 +43,26 @@ class DetailFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        binding.albumsList.layoutManager =
-            LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
+
         viewModel.artistDetail.observe(viewLifecycleOwner) { artist ->
             with(binding) {
                 title.text = artist.name
-                area.text = artist.beginArea?.name
-                val lifeSpanText = "${artist.lifeSpan?.begin} - ${artist.lifeSpan?.end}"
-                lifeSpan.text = lifeSpanText
+                area.setTextAndVisibility(artist.beginArea?.name)
+                lifeSpan.setTextAndVisibility(artist.status?.formatted())
 
+                albumsList.layoutManager =
+                    LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
                 albumsList.adapter = AlbumsAdapter(artist.albums)
             }
+        }
+    }
+
+    private fun TextView.setTextAndVisibility(newText: String?) {
+        text = newText
+        visibility = if (newText != null) {
+            View.VISIBLE
+        } else {
+            View.GONE
         }
     }
 }

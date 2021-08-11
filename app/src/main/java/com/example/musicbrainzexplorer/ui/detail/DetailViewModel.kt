@@ -1,7 +1,7 @@
 package com.example.musicbrainzexplorer.ui.detail
 
 import androidx.lifecycle.*
-import com.example.musicbrainzexplorer.remote.model.ArtistDetailResponse
+import com.example.musicbrainzexplorer.remote.model.ArtistDetail
 import com.example.musicbrainzexplorer.repository.ArtistDetailRepository
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
@@ -13,8 +13,8 @@ class DetailViewModel @AssistedInject constructor(
     @Assisted private val artistId: String,
     private val artistDetailRepository: ArtistDetailRepository
 ) : ViewModel() {
-    private val _artistDetail = MutableLiveData<ArtistDetailResponse>()
-    val artistDetail: LiveData<ArtistDetailResponse> = _artistDetail
+    private val _artistDetail = MutableLiveData<ArtistDetail>()
+    val artistDetail: LiveData<ArtistDetail> = _artistDetail
 
     init {
         viewModelScope.launch {
