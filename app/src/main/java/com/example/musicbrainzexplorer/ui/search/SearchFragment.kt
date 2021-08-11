@@ -9,7 +9,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.musicbrainzexplorer.R
 import com.example.musicbrainzexplorer.databinding.FragmentSearchBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -50,6 +49,7 @@ class SearchFragment : Fragment() {
     }
 
     private fun navigateToDetail(id: String) {
-        findNavController().navigate(R.id.detailFragment)
+        val action = SearchFragmentDirections.actionSearchFragmentToDetailFragment(id)
+        findNavController().navigate(action)
     }
 }
