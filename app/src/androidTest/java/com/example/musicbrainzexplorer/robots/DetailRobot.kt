@@ -5,6 +5,7 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import com.example.musicbrainzexplorer.R
 import org.hamcrest.CoreMatchers.allOf
+import org.hamcrest.CoreMatchers.not
 
 class DetailRobot {
     fun checkActivityIsDisplayed() {
@@ -32,5 +33,13 @@ class DetailRobot {
                 )
             )
         )
+    }
+
+    fun checkLifeSpanIsNotDisplayed() {
+        onView(withId(R.id.lifeSpan)).check(matches(not(isDisplayed())))
+    }
+
+    fun checkAreaIsNotDisplayed() {
+        onView(withId(R.id.area)).check(matches(not(isDisplayed())))
     }
 }

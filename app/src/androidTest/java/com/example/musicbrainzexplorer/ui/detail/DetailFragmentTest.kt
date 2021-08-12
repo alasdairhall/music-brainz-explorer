@@ -43,4 +43,22 @@ class DetailFragmentTest {
         detailRobot.checkLifeSpanMatchesText(status.formatted())
         detailRobot.checkAlbumListIsDisplayedWithCount(1)
     }
+
+    @Test
+    fun testStatusAndAreaNotShownIfNull() {
+        FakeArtistDetailApi.response = ArtistDetail(
+            name = "some name",
+            type = ArtistType.Group,
+            status = null,
+            releaseGroups = emptyList(),
+            beginArea = null
+        )
+
+        val args = DetailFragmentArgs(artistId = "some-id").toBundle()
+        launchFragmentInHiltContainer<DetailFragment>(args)
+
+        detailRobot.checkActivityIsDisplayed()
+        detailRobot.checkLifeSpanIsNotDisplayed()
+        detailRobot.checkAreaIsNotDisplayed()
+    }
 }
