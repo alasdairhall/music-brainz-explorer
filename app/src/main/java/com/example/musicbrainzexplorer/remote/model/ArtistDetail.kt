@@ -12,7 +12,6 @@ data class ArtistDetail(
     val status: Status?,
     @Json(name = "release-groups")
     val releaseGroups: List<ReleaseGroup>,
-    val area: Area?,
     @Json(name = "begin-area")
     val beginArea: Area?
 ) {
